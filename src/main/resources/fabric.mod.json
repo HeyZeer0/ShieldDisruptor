@@ -5,19 +5,24 @@
 
   "name": "Shield Disruptor",
   "description": "This is an example description! Tell everyone what your mod is about!",
+  "icon": "assets/shieldisruptor/logo.png",
   "authors": [
     "HeyZeer0"
   ],
   "contact": {
     "homepage": "https://github.com/HeyZeer0",
     "sources": "https://github.com/HeyZeer0/ShieldDisruptor",
-    "email": "heyzeer0@wynntils.com"
+    "email": "heyzeer0@wynntils.com",
+    "issues": "https://github.com/HeyZeer0/ShieldDisruptor/issues"
   },
   "license": "AGPL-3.0",
   "environment": "client",
   "entrypoints": {
     "main": [
       "net.heyzeer0.sd.ModCore"
+    ],
+    "modmenu": [
+      "net.heyzeer0.sd.integrations.SDModMenuIntegration"
     ]
   },
   "mixins": [
@@ -26,6 +31,8 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.16.x",
+    "autoconfig1u": "*",
+    "cloth-config2": "*"
   }
 }

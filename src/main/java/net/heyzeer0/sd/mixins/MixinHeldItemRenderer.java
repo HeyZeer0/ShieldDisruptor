@@ -1,5 +1,6 @@
 package net.heyzeer0.sd.mixins;
 
+import net.heyzeer0.sd.ModCore;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -8,7 +9,7 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,10 +24,12 @@ public class MixinHeldItemRenderer {
         cancellable = true
     )
     private void hideShield(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo callback) {
-        if (entity != MinecraftClient.getInstance().player) return;
-        if (MinecraftClient.getInstance().options.perspective != 0 || stack.isEmpty() || stack.getItem() != Items.SHIELD || entity.isUsingItem()) return;
+        if (!ModCore.getMain().getGeneralConfig().isEnabled || entity != MinecraftClient.getInstance().player) return;
+        if (MinecraftClient.getInstance().options.perspective != 0 || stack.isEmpty() || entity.isUsingItem()) return;
+
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player.getOffHandStack() != stack) return;
+        if (!ModCore.getMain().getGeneralConfig().hiddenItems.contains(Registry.ITEM.getId(stack.getItem()).toString())) return;
 
         callback.cancel();
     }
