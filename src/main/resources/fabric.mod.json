@@ -25,6 +25,9 @@
       "net.heyzeer0.sd.integrations.SDModMenuIntegration"
     ]
   },
+  "custom": {
+    "modmenu:clientsideOnly": true
+  },
   "mixins": [
     "shieldisruptor.mixins.json"
   ],
@@ -34,5 +37,8 @@
     "minecraft": "1.16.x",
     "autoconfig1u": "*",
     "cloth-config2": "*"
+  },
+  "recommends": {
+    "modmenu": "*"
   }
 }
