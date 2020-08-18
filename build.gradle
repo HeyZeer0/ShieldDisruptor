@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'org.example'
-version = '1.0.1'
+version = '1.1.0'
 archivesBaseName = 'ShieldDisruptor'
 
 dependencies {
@@ -16,9 +16,15 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modApi "me.shedaniel.cloth:config-2:4.5.6"
-    modApi "me.sargunvohra.mcmods:autoconfig1u:3.2.0-unstable"
-    modImplementation "io.github.prospector:modmenu:1.12.2+build.17"
+    modApi "me.shedaniel.cloth:config-2:4.7.0-unstable", {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+    modApi "me.sargunvohra.mcmods:autoconfig1u:3.2.0-unstable", {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+    modImplementation "io.github.prospector:modmenu:1.14.6+build.31", {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 }
 
 processResources {

@@ -25,10 +25,10 @@ public class MixinHeldItemRenderer {
     )
     private void hideShield(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo callback) {
         if (!ModCore.getMain().getGeneralConfig().isEnabled || entity != MinecraftClient.getInstance().player) return;
-        if (MinecraftClient.getInstance().options.perspective != 0 || stack.isEmpty() || entity.isUsingItem()) return;
+        if (!MinecraftClient.getInstance().options.getPerspective().isFirstPerson() || stack.isEmpty() || entity.isUsingItem()) return;
 
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        if (player.getOffHandStack() != stack) return;
+        if (player != null && player.getOffHandStack() != stack) return;
         if (!ModCore.getMain().getGeneralConfig().hiddenItems.contains(Registry.ITEM.getId(stack.getItem()).toString())) return;
 
         callback.cancel();

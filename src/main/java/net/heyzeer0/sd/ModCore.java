@@ -3,7 +3,6 @@ package net.heyzeer0.sd;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.ConfigHolder;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
-import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.heyzeer0.sd.configs.GeneralConfig;
 
