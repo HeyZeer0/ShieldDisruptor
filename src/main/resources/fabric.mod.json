@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Shield Disruptor",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Hides your offhand shield, totem of undying or any other configurated item while not using it.",
   "icon": "assets/shieldisruptor/logo.png",
   "authors": [
     "HeyZeer0"
@@ -24,9 +24,6 @@
     "modmenu": [
       "net.heyzeer0.sd.integrations.SDModMenuIntegration"
     ]
-  },
-  "custom": {
-    "modmenu:clientsideOnly": true
   },
   "mixins": [
     "shieldisruptor.mixins.json"
