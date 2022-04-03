@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.11-SNAPSHOT'
 }
 
 repositories {
@@ -21,10 +21,10 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modApi "me.shedaniel.cloth:cloth-config-fabric:6.1.48", {
+    modApi "me.shedaniel.cloth:cloth-config-fabric:6.2.57", {
         exclude group: "net.fabricmc.fabric-api"
     }
-    modImplementation "com.terraformersmc:modmenu:3.0.1", {
+    modImplementation "com.terraformersmc:modmenu:3.1.0", {
         exclude group: "net.fabricmc.fabric-api"
     }
 }
